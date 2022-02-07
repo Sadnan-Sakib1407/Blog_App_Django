@@ -10,8 +10,8 @@
         {% for item in dashboard %}
         <tr>
             <td><strong>{{ item.0 }} </strong></td>
-            <td><strong>{{ item.1 }}</strong></td>
-            <td><strong>{{ item.2 }}</strong></td>
+            <td><strong><a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'user-details' item.1 %}">{{ item.2 }}</a></strong></td>
+            <td><strong>{{ item.3 }}</strong></td>
         </tr>
         {% endfor %}
         </tbody>

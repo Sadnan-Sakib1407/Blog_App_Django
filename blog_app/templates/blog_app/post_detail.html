@@ -1,9 +1,9 @@
 {% extends "blog_app/base.html" %}
 {% block content %}
-  <article class="media content-section">
-    <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+  <article class="media content-section" style="background: #ffffff;padding: 10px 20px;border: 1px solid #dddddd;border-radius: 3px;margin-bottom: 20px;">
+    <img class="rounded-circle article-img" style="height: 65px;width: 65px;margin-right: 16px;" src="{{ post.author.profile.image.url }}" src="{{ object.author.profile.image.url }}">
     <div class="media-body">
-      <div class="article-metadata">
+      <div class="article-metadata" style="padding-bottom: 1px;margin-bottom: 4px;border-bottom: 1px solid #e3e3e3">
         <a class="mr-2" href="#">{{ object.author }}</a>
         <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
         {% if object.author == user %}
@@ -13,8 +13,8 @@
           </div>
         {% endif %}
       </div>
-      <h2 class="article-title">{{ object.title }}</h2>
-      <p class="article-content">{{ object.content }}</p>
+      <h2 class="article-title" style="color: #444444;">{{ object.title }}</h2>
+      <p class="article-content" style="white-space: pre-line;">{{ object.content }}</p>
     </div>
   </article>
 {% endblock content %}

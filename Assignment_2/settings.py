@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-0&&rx@786ui2jzr4xu21$%z$6v=8q9$t6f0txm7et-op5461@v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["sadnan.pythonanywhere.com"]
 
 
 # Application definition
@@ -119,7 +119,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT="/home/Sadnan/Blog_App_Django/static"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

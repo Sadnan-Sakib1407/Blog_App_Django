@@ -25,17 +25,26 @@ def dashboard(request):
         dict[user] = 0
     for post in posts:
         dict[post.author] += 1
-    print(dict)
     dashboard = []
     for key in dict:
-        dashboard.append((key.username, dict[key]))
-    print(dashboard)
-    dashboard = sorted(dashboard, key = lambda item:item[1], reverse=True)
-    dashboard = [(idx+1, item[0], item[1]) for idx, item in enumerate(dashboard)]
+        dashboard.append((key.id, key.username, dict[key]))
+    dashboard = sorted(dashboard, key = lambda item: item[2], reverse=True)
+    dashboard = [(idx+1, item[0], item[1], item[2]) for idx, item in enumerate(dashboard)]
     context = {
         'dashboard': dashboard
     }
     return render(request, 'blog_app/dashboard.html', context)
+
+
+def UserDetailView(request, userid):
+    user = User.objects.filter(id=userid)[0]
+    posts = Post.objects.filter(author=user).order_by('-date_posted')
+    context = {
+        'user': user,
+        'posts': posts
+    }
+    return render(request, 'blog_app/userdetails.html', context)
+
 
 
 class PostListView(ListView):
